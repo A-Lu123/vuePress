@@ -17,4 +17,7 @@
 6. 说起变量的作用域自然是为了防止污染变量，那其实闭包也是一种隔离变量的方式（看怎么理解了）
 7. 内置对象 Math Date 宿主对象 比如document等
 -----
-1.
+1. DOM常用的节点：元素节点 文本节点 属性节点
+2. 获取元素 getElementById getElementsByClassName getElementsByTagName 
+3. getAttribute setAttrtibute 
+4. 阻止默认行为 return false
