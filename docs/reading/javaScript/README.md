@@ -21,3 +21,25 @@
 2. 获取元素 getElementById getElementsByClassName getElementsByTagName 
 3. getAttribute setAttrtibute 
 4. 阻止默认行为 return false
+-------
+--------
+直接第五章 中间跳过了 有空在看
+-------
+1. 平稳退化：确保网页在没有JavaScript的情况下也能正常工作
+2. 渐进增强：用一些额外的数据去包裹原始的数据，按照渐进增强原则创建出来的网页几乎都符合平稳退化的原则
+3. 向后兼容：兼容一些古老的浏览器 他们对js的支持程度不一样 比如
+    `if (!document.getElementById) return false;`
+4. 性能优化：js尽量减少访问dom和减少标记（过多不必要的元素只会增加dom树的规模，进而增加遍历dom树以查找特定元素的时间），减少搜索dom树
+5. js脚本的优化可以有：合并脚本（把多个js文件合并到一个脚本中，减少加载页面的请求数量）放置脚本（将js文件放在最后，</body>之前，配合window.onload）压缩脚本
+-----
+1. 比如把a标签中的href属性赋值为一个真是的链接或者地址，这样当js禁用时仍能保持跳转-----平稳退化
+2. 如果想用js给网页添加一些行为，就不应该让js代码对这个网页的结构有依赖
+3. 按理说函数只有一个入口和一个出口，但实际中感觉如果函数有多个出口，只要这些出口集中出现在函数的开头 还是可以接口的，比如
+
+    `function demo() {
+      if (!document.getElementById) return false;
+      if (!document.getElementsByTagName) return false;
+      var dom = document.getElementById('btn');
+      console.log(dom)
+    }`
+<!-- 4. 阅读到79 -->
