@@ -42,4 +42,34 @@
       var dom = document.getElementById('btn');
       console.log(dom)
     }`
-<!-- 4. 阅读到79 -->
+4. onload函数 的最佳解决方案
+      function addLoadEvent(func) {
+        var oldonload = window.onload;
+        if (typeof window.onload !== 'function') {
+          window.onload = func;
+        }else {
+          window.onload = function() {
+            oldonload();
+            func();
+          }
+        }
+      }
+
+      addLoadEvent(fun1)
+      addLoadEvent(fun2)
+5. 理想情况下，js脚本不应该对html文档的内容和结构做太多的假设，这方面要根据实际情况来确定
+6. onclick 与 onkeypresss 事件，其实用tab键移动到某个链接然后按下回车键的动作也会触发onclik事件 onclick涉及的很好 已经满足需要了
+7. 支持dom的任何一种程序设计语言 是啥 ？？
+8. 简单区分下DOM Core 和 HTML-DOM 
+  1.DOM Core: abc.setAttribute('src', source)
+  2.HTML-DOM: abc.src = source
+  个人简单的理解 DOM Core 方法是不专属于js，支持dom的任何一种程序设计语言都可以使用，并且不仅限于处理网页 也可以处理任何一种其他的标记语言（比如XML）编写出来的文档，两者使用根据个人喜好来（其实感觉DOM Core更稳妥点）
+--------
+1. innerHTML 是带着标签的 innerHTML 是HTML 的专有属性，不能用于任何其他标记语言文档
+2. 再次感受到渐进增强： 比如一个打开链接操作 一开始就依赖于JavaScript伪协议去处理链接的操作是不对的， 我们可以设计的时候是开始使用常规真实的链接，然后通过JavaScript去拦截他，同样，比如构建ajax网站最好的方法，也是先构建一个常规的网站，然后用ajax去拦截他
+3. createElement createTextNode appendChild insertBefore
+--------
+1. 多定义一些变量可以方便阅读代码
+2. continue 的使用（平时使用的是比较少的）
+<!-- 8.5章 -->
+3. 
